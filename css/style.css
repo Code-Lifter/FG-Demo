@@ -1,0 +1,578 @@
+@charset "UTF-8";
+body {
+  background-color: red;
+}
+
+/* style.css */
+/* Basic Reset & Body Styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth; /* Enable smooth scrolling */
+  scroll-padding-top: 70px; /* Adjust scroll position to account for sticky header */
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f8f9fa;
+}
+
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* Section Styling */
+.section {
+  padding: 60px 0;
+}
+
+.section h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-family: "Poppins", sans-serif;
+  font-size: 2.2rem;
+  color: #2c3e50;
+}
+
+.bg-light {
+  background-color: #ffffff;
+  border-top: 1px solid #e7e7e7;
+  border-bottom: 1px solid #e7e7e7;
+}
+
+.bg-dark {
+  background-color: #2c3e50;
+  color: #ecf0f1;
+}
+
+/* Header */
+.header {
+  background-color: #ffffff;
+  padding: 10px 0; /* Slightly reduced padding */
+  border-bottom: 1px solid #e0e0e0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.header-container { /* Use specific container class for header flex */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 1.8rem;
+  color: #3498db;
+  letter-spacing: 1px;
+  text-decoration: none; /* In case it's wrapped in a link */
+}
+
+/* Main Navigation - Desktop */
+.main-nav ul {
+  list-style: none;
+  display: flex;
+}
+
+.main-nav li {
+  margin-left: 25px;
+}
+
+.main-nav a {
+  text-decoration: none;
+  color: #555;
+  font-weight: 600;
+  transition: color 0.3s ease;
+  padding: 5px 0; /* Add padding for easier clicking */
+}
+
+.main-nav a:hover {
+  color: #3498db;
+}
+
+/* Hamburger Menu Button */
+.nav-toggle {
+  display: none; /* Hidden by default on larger screens */
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 1001; /* Ensure it's above nav */
+}
+
+.hamburger {
+  display: block;
+  position: relative;
+  width: 25px;
+  height: 3px;
+  background-color: #333;
+  border-radius: 3px;
+  transition: background-color 0s 0.2s linear; /* Delay background disappearance */
+}
+
+.hamburger::before,
+.hamburger::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: #333;
+  border-radius: 3px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.hamburger::before {
+  top: -8px; /* Position lines above */
+}
+
+.hamburger::after {
+  top: 8px; /* Position lines below */
+}
+
+/* Hero Section with Video */
+.hero {
+  height: 70vh; /* Adjust height as needed */
+  position: relative; /* Crucial for positioning video and overlay */
+  overflow: hidden; /* Hide parts of video extending beyond section */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #ffffff;
+}
+
+.hero-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100; /* Place video behind content */
+  transform: translateX(-50%) translateY(-50%);
+  background-size: cover;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.55); /* Slightly darker overlay */
+  z-index: 1; /* Overlay above video, below text */
+}
+
+.hero-content {
+  position: relative; /* Ensure content is above overlay */
+  z-index: 2;
+}
+
+.hero h2 {
+  font-size: 2.8rem;
+  margin-bottom: 15px;
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+/* Buttons */
+.cta-button, .cta-button-secondary, .cta-button-social {
+  display: inline-block;
+  padding: 12px 25px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  cursor: pointer;
+  border: none;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.cta-button {
+  background-color: #3498db;
+  color: #ffffff;
+}
+
+.cta-button:hover {
+  background-color: #2980b9;
+  transform: translateY(-2px);
+}
+
+.cta-button-secondary {
+  background-color: #ecf0f1;
+  color: #34495e;
+  border: 1px solid #bdc3c7;
+}
+
+.cta-button-secondary:hover {
+  background-color: #dcdfe2;
+  transform: translateY(-2px);
+}
+
+/* Social Media Button */
+.cta-button-social {
+  background-color: #e4405f; /* Instagram-like color */
+  color: #ffffff;
+  padding: 10px 20px; /* Slightly smaller padding */
+}
+
+.cta-button-social i {
+  margin-right: 8px; /* Space between icon and text */
+}
+
+.cta-button-social:hover {
+  background-color: #c13584; /* Darker shade on hover */
+  transform: translateY(-2px);
+}
+
+/* Intro Section */
+.intro {
+  text-align: center;
+}
+
+.intro p {
+  max-width: 700px;
+  margin: 0 auto;
+  color: #555;
+}
+
+/* Products Section */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+  text-align: center;
+}
+
+.product-item img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-item p {
+  font-weight: 600;
+  color: #333;
+}
+
+/* Services List Section */
+.service-list {
+  list-style: none;
+  max-width: 600px;
+  margin: 0 auto;
+  padding-left: 20px;
+}
+
+.service-list li {
+  padding: 10px 0 10px 30px;
+  border-bottom: 1px dashed #ccc;
+  position: relative;
+}
+
+.service-list li:last-child {
+  border-bottom: none;
+}
+
+.service-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 10px;
+  color: #2ecc71;
+  font-weight: bold;
+}
+
+/* Projects Section */
+.project-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px; /* Space before Instagram CTA */
+}
+
+.project-gallery img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-gallery img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Instagram CTA */
+.instagram-cta {
+  text-align: center;
+  margin-top: 40px; /* Space above the CTA */
+  padding: 30px;
+  background-color: #e9f5ff; /* Light blue background */
+  border-radius: 8px;
+  border: 1px solid #bde0fe;
+}
+
+.instagram-cta h3 {
+  font-family: "Poppins", sans-serif;
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+.instagram-cta p {
+  color: #555;
+  margin-bottom: 20px;
+}
+
+/* Process Section */
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  text-align: center;
+}
+
+.step {
+  background-color: #fff;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.step:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
+}
+
+.step h3 {
+  font-family: "Poppins", sans-serif;
+  color: #3498db;
+  margin-bottom: 10px;
+  font-size: 1.3rem;
+}
+
+/* Reviews Section */
+.review-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.review-card {
+  background-color: #ffffff;
+  padding: 25px;
+  border-left: 5px solid #3498db;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.07);
+}
+
+.review-card p {
+  font-style: italic;
+  margin-bottom: 15px;
+  color: #555;
+}
+
+.reviewer {
+  display: block;
+  text-align: right;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Comparison Section Removed - No specific CSS needed to remove */
+/* Footer */
+.footer {
+  padding: 50px 0 20px;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.footer-map, .footer-contact {
+  flex: 1;
+  min-width: 300px;
+}
+
+.footer h3 {
+  font-family: "Poppins", sans-serif;
+  color: #ecf0f1;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #7f8c8d;
+  padding-bottom: 10px;
+}
+
+.footer-map img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.footer-contact p {
+  margin-bottom: 10px;
+  color: #bdc3c7;
+}
+
+/* Contact Form in Footer */
+.contact-form input[type=text],
+.contact-form input[type=email],
+.contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #7f8c8d;
+  border-radius: 4px;
+  background-color: #34495e;
+  color: #ecf0f1;
+}
+
+.contact-form textarea {
+  resize: vertical;
+}
+
+.contact-form button {
+  width: 100%;
+  padding: 12px;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 20px;
+  border-top: 1px solid #34495e;
+  font-size: 0.9rem;
+  color: #bdc3c7;
+}
+
+/* Footer Social Links */
+.social-links {
+  margin-top: 15px;
+}
+
+.social-links a {
+  color: #bdc3c7;
+  font-size: 1.5rem; /* Larger icons */
+  margin: 0 10px;
+  transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+  color: #3498db; /* Highlight color on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .section h2 {
+    font-size: 1.8rem;
+  }
+  /* Mobile Navigation Styles */
+  .nav-toggle {
+    display: block; /* Show hamburger button */
+  }
+  .main-nav {
+    position: absolute;
+    top: 100%; /* Position below header */
+    left: 0;
+    width: 100%;
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Hide nav by default - using visibility and height */
+    visibility: hidden;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, visibility 0s 0.3s linear; /* Delay visibility change */
+  }
+  .main-nav.active { /* Class added by JS */
+    visibility: visible;
+    max-height: 300px; /* Adjust as needed, large enough for links */
+    transition: max-height 0.3s ease-in, visibility 0s 0s linear;
+  }
+  .main-nav ul {
+    flex-direction: column; /* Stack links vertically */
+    padding: 15px 0; /* Add padding inside mobile menu */
+  }
+  .main-nav li {
+    margin: 0;
+    text-align: center;
+    border-bottom: 1px solid #f0f0f0; /* Separator lines */
+  }
+  .main-nav li:last-child {
+    border-bottom: none;
+  }
+  .main-nav a {
+    display: block; /* Make links take full width */
+    padding: 15px; /* Larger tap target */
+    width: 100%;
+  }
+  /* Animate Hamburger Icon to 'X' */
+  .nav-toggle[aria-expanded=true] .hamburger {
+    background-color: transparent; /* Middle line disappears */
+  }
+  .nav-toggle[aria-expanded=true] .hamburger::before {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  .nav-toggle[aria-expanded=true] .hamburger::after {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+  .hero {
+    height: 60vh; /* Adjust hero height for mobile */
+  }
+  .hero h2 {
+    font-size: 2rem;
+  }
+  .hero p {
+    font-size: 1rem;
+  }
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  .footer-map img {
+    margin: 0 auto 10px;
+  }
+} /* End @media (max-width: 768px) */
+@media (max-width: 480px) {
+  .logo {
+    font-size: 1.5rem;
+  }
+  .product-grid, .project-gallery, .process-steps, .review-grid {
+    grid-template-columns: 1fr;
+  }
+  .cta-button, .cta-button-secondary, .cta-button-social {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+  .hero {
+    height: 55vh;
+  }
+  .hero h2 {
+    font-size: 1.8rem;
+  }
+}
